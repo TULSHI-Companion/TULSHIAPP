@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Download Tulshi — your personal AI Robot Companion. Free Android APK."/>
+<meta property="og:title" content="Tulshi - AI Robot Companion"/>
+<meta property="og:description" content="Download the Tulshi AI Companion app. Your personal robot friend powered by AI."/>
+<meta property="og:image" content="tulshi.png"/>
+<title>Tulshi - Download AI Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#04040f;
+  --orange:#f97316;
+  --orange2:#fb923c;
+  --orange3:#fdba74;
+  --card:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,0.08);
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --dim:#475569;
+}
+html,body{min-height:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Outfit',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+.bg-mesh{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 10%,rgba(249,115,22,0.13) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 60% at 85% 90%,rgba(249,115,22,0.1) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%,rgba(249,115,22,0.04) 0%,transparent 60%);
+}
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.particle{
+  position:absolute;width:2px;height:2px;background:var(--orange);
+  border-radius:50%;opacity:0;animation:float-up linear infinite;
+}
+@keyframes float-up{
+  0%{opacity:0;transform:translateY(0) scale(1)}
+  10%{opacity:.7}
+  90%{opacity:.3}
+  100%{opacity:0;transform:translateY(-100vh) scale(0.3)}
+}
+.page{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px}
+
+/* Avatar — smaller so full image is visible */
+.avatar-ring{position:relative;width:96px;height:96px;margin:0 auto 20px}
+.avatar-ring::before{
+  content:'';position:absolute;inset:-5px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--orange),var(--orange2),var(--orange3),var(--orange));
+  animation:spin 4s linear infinite;
+}
+.avatar-ring::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:var(--bg)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-img{
+  position:relative;z-index:1;width:100%;height:100%;border-radius:50%;
+  object-fit:cover;animation:pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 30px rgba(249,115,22,0.3)}
+  50%{box-shadow:0 0 70px rgba(249,115,22,0.6)}
+}
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:28px;
+  padding:36px 32px 28px;max-width:440px;width:100%;text-align:center;
+  box-shadow:0 30px 80px rgba(0,0,0,0.7),0 0 0 1px rgba(249,115,22,0.05);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  animation:slide-up .6s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes slide-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.25);
+  color:var(--orange2);font-size:11px;font-weight:700;
+  padding:5px 14px;border-radius:20px;margin-bottom:16px;
+  letter-spacing:1.8px;text-transform:uppercase;
+}
+.badge .dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:blink 1.5s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-1px;line-height:1.1}
+.sub{font-size:14px;color:var(--muted);margin-bottom:28px;line-height:1.5}
+.btn-wrap{position:relative;margin-bottom:14px}
+.btn-glow{
+  position:absolute;inset:-1px;border-radius:16px;
+  background:linear-gradient(135deg,var(--orange),var(--orange2));
+  opacity:.4;filter:blur(14px);transition:opacity .3s;pointer-events:none;
+}
+.btn{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:18px;
+  background:linear-gradient(135deg,#ea580c,var(--orange));
+  color:#000;font-size:16px;font-weight:900;font-family:'Outfit',sans-serif;
+  border-radius:15px;text-decoration:none;cursor:pointer;border:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 8px 24px rgba(249,115,22,0.35);
+  letter-spacing:.3px;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(249,115,22,0.5)}
+.btn:active{transform:translateY(-1px)}
+.steps{text-align:left;margin:18px 0;background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:14px;padding:18px}
+.steps-title{font-size:10px;font-weight:700;color:var(--dim);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.step{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:13px;color:var(--muted);line-height:1.4}
+.step:last-child{margin-bottom:0}
+.step-num{
+  background:linear-gradient(135deg,#ea580c,var(--orange));
+  color:#000;font-weight:900;font-size:10px;
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;
+}
+strong{color:var(--text);font-weight:600}
+.footer{font-size:11px;color:var(--dim);margin-top:22px;letter-spacing:.4px;line-height:1.9}
+.footer a{color:var(--orange2);text-decoration:none}
+.footer a:hover{color:var(--orange3);text-decoration:underline}
+.heart{color:var(--orange);display:inline-block;animation:heartbeat 1.5s ease infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+@media(max-width:440px){.card{padding:28px 18px 22px}h1{font-size:26px}.avatar-ring{width:80px;height:80px}}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="particles" id="particles"></div>
+<div class="page">
+  <div class="card">
+    <div class="avatar-ring">
+      <img src="tulshi.png" class="avatar-img" alt="Tulshi AI Companion"
+           onerror="this.onerror=null;this.src='tulshi.jpg'"/>
+    </div>
+    <div class="badge"><span class="dot"></span> Android App</div>
+    <h1>Tulshi Companion</h1>
+    <p class="sub">Your personal AI robot companion — offline capable, just pure intelligence.</p>
+    <div class="btn-wrap">
+      <a id="download-btn" href="Tulshi-Robot-Companion.apk" download class="btn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download Tulshi APK
+      </a>
+      <div class="btn-glow"></div>
+    </div>
+    <div class="steps">
+      <div class="steps-title">How to Install</div>
+      <div class="step"><div class="step-num">1</div><span>Tap <strong>Download Tulshi APK</strong> above</span></div>
+      <div class="step"><div class="step-num">2</div><span>If Chrome warns you — tap <strong>Download anyway</strong></span></div>
+      <div class="step"><div class="step-num">3</div><span>Open the downloaded file and tap <strong>Install</strong></span></div>
+      <div class="step"><div class="step-num">4</div><span>If blocked: <strong>Settings → Install unknown apps → Allow</strong></span></div>
+      <div class="step"><div class="step-num">5</div><span>Launch Tulshi and meet your companion!</span></div>
+    </div>
+    <p class="footer">
+      TULSHI 2026 &nbsp;&bull;&nbsp; Made with <span class="heart">&#10084;</span><br/>
+      For any support contact us at <a href="mailto:tulshi2322001@gmail.com">tulshi2322001@gmail.com</a>
+    </p>
+  </div>
+</div>
+<script>
+const container=document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.left=Math.random()*100+'vw';
+  p.style.bottom='-10px';
+  const s=(Math.random()*3+1)+'px';
+  p.style.width=s;p.style.height=s;
+  p.style.animationDuration=(Math.random()*15+8)+'s';
+  p.style.animationDelay=(Math.random()*10)+'s';
+  container.appendChild(p);
+}
+</script>
+</body>
+</html>
